@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
-var sequelize = new Sequelize('hr_app_db', 'hr_app_db_user', 'fmwGuj7CuqejLDdLzuI8Dq3C83URFJC3', {
-    host: 'dpg-che7lpu7avja5mbqokp0-a',
+var sequelize = new Sequelize(process.env.POSTGRESQL_DATABASE, process.env.POSTGRESQL_USERNAME, process.env.POSTGRESQL_PASSWORD, {
+    host: process.env.POSTGRESQL_HOSTNAME,
     dialect: 'postgres',
     port: 5432,
     dialectOptions: {
