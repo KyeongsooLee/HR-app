@@ -317,7 +317,7 @@ app.post("/login", (req, res) => {
             email: user.email, // authenticated user's email
             loginHistory: user.loginHistory // authenticated user's loginHistory
         }
-        res.redirect('/employees');
+        res.redirect('/');
     })
     .catch((err) => {
         res.render("login", {errorMessage: err, userName: req.body.userName});

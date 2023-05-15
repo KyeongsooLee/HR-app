@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+require('dotenv').config()
 
 var sequelize = new Sequelize(process.env.POSTGRESQL_DATABASE, process.env.POSTGRESQL_USERNAME, process.env.POSTGRESQL_PASSWORD, {
     host: process.env.POSTGRESQL_HOSTNAME,
@@ -7,7 +8,7 @@ var sequelize = new Sequelize(process.env.POSTGRESQL_DATABASE, process.env.POSTG
     dialectOptions: {
     ssl: { rejectUnauthorized: false }
     },
-    query: { raw: true}
+    query: { raw: true},
 });
 
 const Employee = sequelize.define('Employee', {
@@ -46,9 +47,11 @@ module.exports.initialize = function() {
     return new Promise(function (resolve, reject) {
         sequelize.sync()    
         .then(() => {  
+            console.log("Database synchronization successful");
             resolve("resolved successfully");  
         })
-        .catch(() => {  
+        .catch((error) => {  
+            console.log("Database synchronization error:", error);
             reject("unable to sync the database");
         });
     });
