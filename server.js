@@ -19,8 +19,8 @@ function onHttpStart(){
 app.use(clientSessions({
     cookieName: "session",
     secret: "web322_a6",
-    duration: 2 * 60 * 1000,
-    activeDuration: 60 * 1000
+    duration: 30 * 60 * 1000, // 30 minutes
+    activeDuration: 15 * 60 * 1000 // 15 minutes
 }));
 
 app.use(function(req, res, next) {
