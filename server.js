@@ -84,7 +84,7 @@ app.get("/about", function(req, res){
     res.render("about");
 });
 
-app.get("/images", ensureLogin, (req, res) => {
+app.get("/images", (req, res) => {
     fs.readdir("./public/images/uploaded", function(err, imageFile){
         res.render("images",{"images": imageFile});
     });
@@ -94,7 +94,7 @@ app.get("/images/add", ensureLogin, (req,res) => {
     res.render("addImage"); 
 }); 
 
-app.get("/employees", ensureLogin, function(req, res){
+app.get("/employees", function(req, res){
     if (req.query.status){
         dataService.getEmployeesByStatus(req.query.status)
         .then((data) => {
@@ -149,7 +149,7 @@ app.get("/employees", ensureLogin, function(req, res){
     }
 });
 
-app.get("/employee/:empNum", ensureLogin, (req, res) => {
+app.get("/employee/:empNum", (req, res) => {
     // initialize an empty object to store the values
     let viewData = {};
     dataService.getEmployeeByNum(req.params.empNum).then((data) => {
@@ -227,7 +227,7 @@ app.get("/employees/add", ensureLogin, function(req, res){
     });
 });
 
-app.get("/departments", ensureLogin, function(req, res){
+app.get("/departments", function(req, res){
     dataService.getDepartments()
     .then((data) => {
         if (data.length > 0) {

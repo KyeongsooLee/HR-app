@@ -46,11 +46,17 @@
             {{#navLink "/employees"}}Employees{{/navLink}}
             {{#navLink "/departments"}}Departments{{/navLink}}
           </ul>
+
           {{else}}
           <form class="navbar-form navbar-right">
             <a href="/register" class="btn btn-success"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;Register</a>          
             <a href="/login" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Log In</a>
           </form>
+          <ul class="nav navbar-nav navbar-right">
+            {{#navLink "/images"}}Images{{/navLink}}
+            {{#navLink "/employees"}}Employees{{/navLink}}
+            {{#navLink "/departments"}}Departments{{/navLink}}
+          </ul>
           {{/if}}
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
